@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <main>
+      <div class="mainDiv">
+        <div id="display"></div>
+        <div class="row" id="row1">
+          <button id="nine">9</button>
+          <button id="clear">C</button>
+          <button id="divide">/</button>
+          <button id="multiply">*</button>
+        </div>
+        <div class="row" id="row2">
+          <button id="six">6</button>
+          <button id="seven">7</button>
+          <button id="eight">8</button>
+          <button id="subtract">-</button>
+        </div>
+        <div class="row" id="row3">
+          <button id="three">3</button>
+          <button id="four">4</button>
+          <button id="five">5</button>
+          <button id="sum">+</button>
+        </div>
+        <div class="row" id="row4">
+          <button id="zero">0</button>
+          <button id="one">1</button>
+          <button id="two">2</button>
+          <button id="equal">=</button>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const clear$ = document.getElementById("clear");
+      const equal$ = document.getElementById("equal");
+      const zero$ = document.getElementById("zero");
+      const one$ = document.getElementById("one");
+      const two$ = document.getElementById("two");
+      const three$ = document.getElementById("three");
+      const four$ = document.getElementById("four");
+      const five$ = document.getElementById("five");
+      const six$ = document.getElementById("six");
+      const seven$ = document.getElementById("seven");
+      const eight$ = document.getElementById("eight");
+      const nine$ = document.getElementById("nine");
+      let sum$ = document.getElementById("sum");
+      let subtract$ = document.getElementById("subtract");
+      let multiply$ = document.getElementById("multiply");
+      let divide$ = document.getElementById("divide");
+      const display$ = document.getElementById("display");
+
+      clear$.addEventListener("click", function () {
+        display$.innerText = "";
+      });
+
+      zero$.addEventListener("click", function () {
+        display$.innerText += zero$.innerText;
+      });
+
+      one$.addEventListener("click", function () {
+        display$.innerText += one$.innerText;
+      });
+
+      two$.addEventListener("click", function () {
+        display$.innerText += two$.innerText;
+      });
+
+      three$.addEventListener("click", function () {
+        display$.innerText += three$.innerText;
+      });
+
+      four$.addEventListener("click", function () {
+        display$.innerText += four$.innerText;
+      });
+
+      five$.addEventListener("click", function () {
+        display$.innerText += five$.innerText;
+      });
+
+      six$.addEventListener("click", function () {
+        display$.innerText += six$.innerText;
+      });
+
+      seven$.addEventListener("click", function () {
+        display$.innerText += seven$.innerText;
+      });
+
+      eight$.addEventListener("click", function () {
+        display$.innerText += eight$.innerText;
+      });
+
+      nine$.addEventListener("click", function () {
+        display$.innerText += nine$.innerText;
+      });
+
+      sum$.addEventListener("click", function () {
+        const lastChar = display$.innerText[display$.innerText.length - 1];
+
+        if (lastChar === "+") {
+          return;
+        } else if (lastChar === "-" || lastChar === "/" || lastChar === "*") {
+          display$.innerText = display$.innerText.slice(
+            0,
+            display$.innerText.length - 2
+          );
+        }
+
+        display$.innerText += "+";
+      });
+
+      subtract$.addEventListener("click", function () {
+        const lastChar = display$.innerText[display$.innerText.length - 1];
+
+        if (lastChar === "-") {
+          return;
+        } else if (lastChar === "+" || lastChar === "/" || lastChar === "*") {
+          display$.innerText = display$.innerText.slice(
+            0,
+            display$.innerText.length - 2
+          );
+        }
+
+        display$.innerText += "-";
+      });
+
+      multiply$.addEventListener("click", function () {
+        const lastChar = display$.innerText[display$.innerText.length - 1];
+
+        if (lastChar === "*") {
+          return;
+        } else if (lastChar === "-" || lastChar === "/" || lastChar === "+") {
+          display$.innerText = display$.innerText.slice(
+            0,
+            display$.innerText.length - 2
+          );
+        }
+
+        display$.innerText += "*";
+      });
+
+      divide$.addEventListener("click", function () {
+        const lastChar = display$.innerText[display$.innerText.length - 1];
+
+        if (lastChar === "/") {
+          return;
+        } else if (lastChar === "-" || lastChar === "+" || lastChar === "*") {
+          display$.innerText = display$.innerText.slice(
+            0,
+            display$.innerText.length - 2
+          );
+        }
+
+        display$.innerText += "/";
+      });
+
+      equal$.addEventListener("click", function () {
+        display$.innerText = eval(display$.innerText);
+      });
+    </script>
+  </body>
+</html>
